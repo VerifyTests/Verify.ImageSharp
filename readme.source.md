@@ -40,6 +40,13 @@ Samples.VerifyImageFile.verified.jpg
 <img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
 
 
+### Verify an Image
+
+An instance if an `Image` can be verified using the following:
+
+snippet: VerifyImage
+
+
 ## File Samples
 
 http://file-examples.com/

@@ -18,6 +18,7 @@ Extends [Verify](https://github.com/SimonCropp/Verify) to allow verification of 
 
   * [Usage](#usage)
     * [Verify a file](#verify-a-file)
+    * [Verify an Image](#verify-an-image)
   * [File Samples](#file-samples)<!-- endtoc -->
 
 
@@ -46,7 +47,7 @@ public class Samples :
         VerifyImageSharp.Initialize();
     }
 ```
-<sup><a href='/src/Tests/Samples.cs#L6-L19' title='File snippet `testdefinition` was extracted from'>snippet source</a> | <a href='#snippet-testdefinition' title='Navigate to start of snippet `testdefinition`'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L9-L22' title='File snippet `testdefinition` was extracted from'>snippet source</a> | <a href='#snippet-testdefinition' title='Navigate to start of snippet `testdefinition`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
@@ -61,7 +62,7 @@ public Task VerifyImageFile()
     return VerifyFile("sample.jpg");
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L21-L29' title='File snippet `verifyimagefile` was extracted from'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Navigate to start of snippet `verifyimagefile`'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L24-L32' title='File snippet `verifyimagefile` was extracted from'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Navigate to start of snippet `verifyimagefile`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Two files are produced
@@ -88,6 +89,29 @@ Samples.VerifyImageFile.info.verified.txt
 Samples.VerifyImageFile.verified.jpg
 
 <img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
+
+
+### Verify an Image
+
+An instance if an `Image` can be verified using the following:
+
+<!-- snippet: VerifyImage -->
+<a id='snippet-verifyimage'/></a>
+```cs
+[Fact]
+public Task VerifyImage()
+{
+    var image = new Image<Rgba32>(400, 400)
+    {
+        [200, 200] = Rgba32.White
+    };
+    var settings = new VerifySettings();
+    settings.UseExtension("png");
+    return Verify(image, settings);
+}
+```
+<sup><a href='/src/Tests/Samples.cs#L34-L47' title='File snippet `verifyimage` was extracted from'>snippet source</a> | <a href='#snippet-verifyimage' title='Navigate to start of snippet `verifyimage`'>anchor</a></sup>
+<!-- endsnippet -->
 
 
 ## File Samples
