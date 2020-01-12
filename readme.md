@@ -67,6 +67,12 @@ public Task VerifyImageFile()
 
 #### Result
 
+Two files are produced
+
+Info file:
+
+Samples.VerifyImageFile.info.verified.txt
+
 <!-- snippet: Samples.VerifyImageFile.info.verified.txt -->
 <a id='snippet-Samples.VerifyImageFile.info.verified.txt'/></a>
 ```txt
@@ -80,6 +86,10 @@ public Task VerifyImageFile()
 ```
 <sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L7' title='File snippet `Samples.VerifyImageFile.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.info.verified.txt' title='Navigate to start of snippet `Samples.VerifyImageFile.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
+
+Image file:
+
+Samples.VerifyImageFile.verified.jpg
 
 <img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
 

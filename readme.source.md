@@ -28,7 +28,17 @@ snippet: VerifyImageFile
 
 #### Result
 
+Two files are produced
+
+Info file:
+
+Samples.VerifyImageFile.info.verified.txt
+
 snippet: Samples.VerifyImageFile.info.verified.txt
+
+Image file:
+
+Samples.VerifyImageFile.verified.jpg
 
 <img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
 
