@@ -25,18 +25,15 @@ snippet: TestDefinition
 
 snippet: VerifyImageFile
 
-
-#### Result
-
 Two files are produced
 
-Info file:
+#### Info file:
 
 Samples.VerifyImageFile.info.verified.txt
 
 snippet: Samples.VerifyImageFile.info.verified.txt
 
-Image file:
+#### Image file:
 
 Samples.VerifyImageFile.verified.jpg
 

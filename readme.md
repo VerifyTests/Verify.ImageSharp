@@ -64,12 +64,9 @@ public Task VerifyImageFile()
 <sup><a href='/src/Tests/Samples.cs#L21-L29' title='File snippet `verifyimagefile` was extracted from'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Navigate to start of snippet `verifyimagefile`'>anchor</a></sup>
 <!-- endsnippet -->
 
-
-#### Result
-
 Two files are produced
 
-Info file:
+#### Info file:
 
 Samples.VerifyImageFile.info.verified.txt
 
@@ -77,17 +74,16 @@ Samples.VerifyImageFile.info.verified.txt
 <a id='snippet-Samples.VerifyImageFile.info.verified.txt'/></a>
 ```txt
 {
-  Width: 1050,
-  Height: 700,
-  HorizontalResolution: 72.0,
-  VerticalResolution: 72.0,
-  ResolutionUnits: 'PixelsPerInch'
+  Width: 1599,
+  Height: 1066,
+  HorizontalResolution: 1.0,
+  VerticalResolution: 1.0
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L7' title='File snippet `Samples.VerifyImageFile.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.info.verified.txt' title='Navigate to start of snippet `Samples.VerifyImageFile.info.verified.txt`'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L6' title='File snippet `Samples.VerifyImageFile.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.info.verified.txt' title='Navigate to start of snippet `Samples.VerifyImageFile.info.verified.txt`'>anchor</a></sup>
 <!-- endsnippet -->
 
-Image file:
+#### Image file:
 
 Samples.VerifyImageFile.verified.jpg
 
