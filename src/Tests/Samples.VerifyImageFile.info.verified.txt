@@ -1,0 +1,7 @@
+{
+  Width: 1050,
+  Height: 700,
+  HorizontalResolution: 72.0,
+  VerticalResolution: 72.0,
+  ResolutionUnits: 'PixelsPerInch'
+}
