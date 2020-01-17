@@ -19,7 +19,8 @@ Extends [Verify](https://github.com/SimonCropp/Verify) to allow verification of 
   * [Usage](#usage)
     * [Verify a file](#verify-a-file)
     * [Verify an Image](#verify-an-image)
-  * [File Samples](#file-samples)<!-- endtoc -->
+  * [File Samples](#file-samples)
+  * [Security contact information](#security-contact-information)<!-- endtoc -->
 
 
 ## NuGet package
@@ -119,9 +120,9 @@ public Task VerifyImage()
 http://file-examples.com/
 
 
-## Release Notes
+## Security contact information
 
-See [closed milestones](../../milestones?state=closed).
+To report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
 
 
 ## Release Notes
