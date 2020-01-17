@@ -57,6 +57,11 @@ http://file-examples.com/
 See [closed milestones](../../milestones?state=closed).
 
 
+## Release Notes
+
+See [closed milestones](../../milestones?state=closed).
+
+
 ## Icon
 
 [Swirl](https://thenounproject.com/term/pattern/2719636/) designed by [BÖCK, RU](https://thenounproject.com/titaniclast/) from [The Noun Project](https://thenounproject.com/creativepriyanka).
