@@ -28,11 +28,13 @@ snippet: VerifyImageFile
 
 Two files are produced
 
+
 #### Info file:
 
 Samples.VerifyImageFile.info.verified.txt
 
 snippet: Samples.VerifyImageFile.info.verified.txt
+
 
 #### Image file:
 
