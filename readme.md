@@ -105,9 +105,9 @@ An instance if an `Image` can be verified using the following:
 [Fact]
 public Task VerifyImage()
 {
-    var image = new Image<Rgba32>(400, 400)
+    var image = new Image<Rgba32>(11, 11)
     {
-        [200, 200] = Rgba32.White
+        [5, 5] = Rgba32.ParseHex("#0000FF")
     };
     var settings = new VerifySettings();
     settings.UseExtension("png");
