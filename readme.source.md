@@ -1,9 +1,9 @@
 # <img src="/src/icon.png" height="30px"> Verify.ImageSharp
 
-[![Build status](https://ci.appveyor.com/api/projects/status/o30f8u47l7vv5844?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-ImageSharp)
+[![Build status](https://ci.appveyor.com/api/projects/status/o30f8u47l7vv5844?svg=true)](https://ci.appveyor.com/project/VerifyTests/Verify-ImageSharp)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.ImageSharp.svg)](https://www.nuget.org/packages/Verify.ImageSharp/)
 
-Extends [Verify](https://github.com/SimonCropp/Verify) to allow verification of documents via [ImageSharp](https://github.com/SixLabors/ImageSharp).
+Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [ImageSharp](https://github.com/SixLabors/ImageSharp).
 
 Support is available via a [Tidelift Subscription](https://tidelift.com/subscription/pkg/nuget-verify.imagesharp?utm_source=nuget-verify.imagesharp&utm_medium=referral&utm_campaign=enterprise).
 
