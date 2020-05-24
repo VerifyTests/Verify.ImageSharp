@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
@@ -23,9 +22,9 @@ public static class VerifyImageSharp
         SharedVerifySettings.RegisterFileConverter("png", ConvertPngImage, IsImage);
     }
 
-    private static bool IsImage(Type type)
+    private static bool IsImage(object target)
     {
-        return type.IsSubclassOf(typeof(Image));
+        return target is Image;
     }
 
     static ConversionResult ConvertBmpImage(object image, VerifySettings settings)
