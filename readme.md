@@ -36,20 +36,15 @@ Given a test with the following definition:
 <!-- snippet: TestDefinition -->
 <a id='snippet-testdefinition'/></a>
 ```cs
-public class Samples :
-    VerifyBase
+[TestFixture]
+public class Samples
 {
-    public Samples(ITestOutputHelper output) :
-        base(output)
-    {
-    }
-
     static Samples()
     {
         VerifyImageSharp.Initialize();
     }
 ```
-<sup><a href='/src/Tests/Samples.cs#L9-L22' title='File snippet `testdefinition` was extracted from'>snippet source</a> | <a href='#snippet-testdefinition' title='Navigate to start of snippet `testdefinition`'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L8-L16' title='File snippet `testdefinition` was extracted from'>snippet source</a> | <a href='#snippet-testdefinition' title='Navigate to start of snippet `testdefinition`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
@@ -58,13 +53,13 @@ public class Samples :
 <!-- snippet: VerifyImageFile -->
 <a id='snippet-verifyimagefile'/></a>
 ```cs
-[Fact]
+[Test]
 public Task VerifyImageFile()
 {
-    return VerifyFile("sample.jpg");
+    return Verifier.VerifyFile("sample.jpg");
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L24-L32' title='File snippet `verifyimagefile` was extracted from'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Navigate to start of snippet `verifyimagefile`'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L18-L26' title='File snippet `verifyimagefile` was extracted from'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Navigate to start of snippet `verifyimagefile`'>anchor</a></sup>
 <!-- endsnippet -->
 
 Two files are produced
@@ -102,7 +97,7 @@ An instance if an `Image` can be verified using the following:
 <!-- snippet: VerifyImage -->
 <a id='snippet-verifyimage'/></a>
 ```cs
-[Fact]
+[Test]
 public Task VerifyImage()
 {
     var image = new Image<Rgba32>(11, 11)
@@ -111,10 +106,10 @@ public Task VerifyImage()
     };
     var settings = new VerifySettings();
     settings.UseExtension("png");
-    return Verify(image, settings);
+    return Verifier.Verify(image, settings);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L34-L47' title='File snippet `verifyimage` was extracted from'>snippet source</a> | <a href='#snippet-verifyimage' title='Navigate to start of snippet `verifyimage`'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L28-L41' title='File snippet `verifyimage` was extracted from'>snippet source</a> | <a href='#snippet-verifyimage' title='Navigate to start of snippet `verifyimage`'>anchor</a></sup>
 <!-- endsnippet -->
 
 
