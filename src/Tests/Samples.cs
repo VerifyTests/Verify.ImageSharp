@@ -2,19 +2,13 @@
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using Verify;
-using VerifyXunit;
-using Xunit;
-using Xunit.Abstractions;
+using VerifyNUnit;
+using NUnit.Framework;
 
 #region TestDefinition
-public class Samples :
-    VerifyBase
+[TestFixture]
+public class Samples
 {
-    public Samples(ITestOutputHelper output) :
-        base(output)
-    {
-    }
-
     static Samples()
     {
         VerifyImageSharp.Initialize();
@@ -23,17 +17,17 @@ public class Samples :
 
     #region VerifyImageFile
 
-    [Fact]
+    [Test]
     public Task VerifyImageFile()
     {
-        return VerifyFile("sample.jpg");
+        return Verifier.VerifyFile("sample.jpg");
     }
 
     #endregion
 
     #region VerifyImage
 
-    [Fact]
+    [Test]
     public Task VerifyImage()
     {
         var image = new Image<Rgba32>(11, 11)
@@ -42,7 +36,7 @@ public class Samples :
         };
         var settings = new VerifySettings();
         settings.UseExtension("png");
-        return Verify(image, settings);
+        return Verifier.Verify(image, settings);
     }
     #endregion
 }
