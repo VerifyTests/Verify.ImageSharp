@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using Verify;
+using VerifyTests;
 using VerifyNUnit;
 using NUnit.Framework;
 
