@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Bmp;
@@ -16,10 +17,7 @@ namespace VerifyTests
             VerifierSettings.RegisterFileConverter("gif", ConvertGif);
             VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
             VerifierSettings.RegisterFileConverter("png", ConvertPng);
-            VerifierSettings.RegisterFileConverter(ConvertBmpImage, IsImage);
-            VerifierSettings.RegisterFileConverter(ConvertGifImage, IsImage);
-            VerifierSettings.RegisterFileConverter(ConvertJpgImage, IsImage);
-            VerifierSettings.RegisterFileConverter(ConvertPngImage, IsImage);
+            VerifierSettings.RegisterFileConverter(ConvertImage, IsImage);
         }
 
         private static bool IsImage(object target)
@@ -27,24 +25,24 @@ namespace VerifyTests
             return target is Image;
         }
 
-        static ConversionResult ConvertBmpImage(object image, VerifySettings settings)
+        public static void TargetExtension(this VerifySettings settings, string extension)
         {
-            return Convert((Image) image, "bmp", new BmpEncoder());
+            Guard.AgainstNull(settings, nameof(settings));
+            Guard.AgainstNullOrEmpty(extension, nameof(extension));
+            settings.Data["VerifyImageSharpTargetExtension"] = extension;
+        }
+        static string GetTargetExtension(this VerifySettings settings)
+        {
+            if (settings.Data.TryGetValue("VerifyImageSharpTargetExtension", out var extension))
+            {
+                return (string) extension;
+            }
+            throw new Exception("VerifySettings.TargetExtension() must be used to set the output extension.");
         }
 
-        static ConversionResult ConvertGifImage(object image, VerifySettings settings)
+        static ConversionResult ConvertImage(object image, VerifySettings settings)
         {
-            return Convert((Image) image, "gif", new GifEncoder());
-        }
-
-        static ConversionResult ConvertJpgImage(object image, VerifySettings settings)
-        {
-            return Convert((Image) image, "jpg", new JpegEncoder());
-        }
-
-        static ConversionResult ConvertPngImage(object image, VerifySettings settings)
-        {
-            return Convert((Image) image, "png", new PngEncoder());
+            return Convert((Image) image, GetTargetExtension(settings), new BmpEncoder());
         }
 
         static ConversionResult Convert(Image image, string extension, IImageEncoder encoder)

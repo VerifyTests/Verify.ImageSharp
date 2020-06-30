@@ -35,7 +35,7 @@ public class Samples
             [5, 5] = Rgba32.ParseHex("#0000FF")
         };
         var settings = new VerifySettings();
-        settings.UseExtension("png");
+        settings.TargetExtension("png");
         return Verifier.Verify(image, settings);
     }
     #endregion
