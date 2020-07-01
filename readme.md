@@ -105,7 +105,7 @@ public Task VerifyImage()
         [5, 5] = Rgba32.ParseHex("#0000FF")
     };
     var settings = new VerifySettings();
-    settings.TargetExtension("png");
+    settings.UseExtension("png");
     return Verifier.Verify(image, settings);
 }
 ```
