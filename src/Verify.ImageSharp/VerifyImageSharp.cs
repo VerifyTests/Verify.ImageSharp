@@ -16,15 +16,20 @@ namespace VerifyTests
             VerifierSettings.RegisterFileConverter("gif", ConvertGif);
             VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
             VerifierSettings.RegisterFileConverter("png", ConvertPng);
-            VerifierSettings.RegisterFileConverter(ConvertBmpImage, IsImage);
-            VerifierSettings.RegisterFileConverter(ConvertGifImage, IsImage);
-            VerifierSettings.RegisterFileConverter(ConvertJpgImage, IsImage);
-            VerifierSettings.RegisterFileConverter(ConvertPngImage, IsImage);
+            VerifierSettings.RegisterFileConverter(ConvertBmpImage, (o, settings) => IsImage(o, settings, "bmp"));
+            VerifierSettings.RegisterFileConverter(ConvertGifImage, (o, settings) => IsImage(o, settings, "gif"));
+            VerifierSettings.RegisterFileConverter(ConvertJpgImage, (o, settings) => IsImage(o, settings, "jpg"));
+            VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, settings) => IsImage(o, settings, "png"));
         }
 
-        private static bool IsImage(object target)
+        static bool IsImage(object target, VerifySettings settings, string requiredExtension)
         {
-            return target is Image;
+            if (!settings.TryGetExtension(out var extension))
+            {
+                return false;
+            }
+            return target is Image &&
+                   requiredExtension == extension;
         }
 
         static ConversionResult ConvertBmpImage(object image, VerifySettings settings)
