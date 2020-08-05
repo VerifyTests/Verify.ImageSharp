@@ -37,7 +37,7 @@ https://nuget.org/packages/Verify.ImageSharp/
 Given a test with the following definition:
 
 <!-- snippet: TestDefinition -->
-<a id='snippet-testdefinition'/></a>
+<a id='snippet-testdefinition'></a>
 ```cs
 [TestFixture]
 public class Samples
@@ -54,7 +54,7 @@ public class Samples
 ### Verify a file
 
 <!-- snippet: VerifyImageFile -->
-<a id='snippet-verifyimagefile'/></a>
+<a id='snippet-verifyimagefile'></a>
 ```cs
 [Test]
 public Task VerifyImageFile()
@@ -73,7 +73,7 @@ Two files are produced
 Samples.VerifyImageFile.info.verified.txt
 
 <!-- snippet: Samples.VerifyImageFile.info.verified.txt -->
-<a id='snippet-Samples.VerifyImageFile.info.verified.txt'/></a>
+<a id='snippet-Samples.VerifyImageFile.info.verified.txt'></a>
 ```txt
 {
   Width: 1599,
@@ -98,7 +98,7 @@ Samples.VerifyImageFile.verified.jpg
 An instance if an `Image` can be verified using the following:
 
 <!-- snippet: VerifyImage -->
-<a id='snippet-verifyimage'/></a>
+<a id='snippet-verifyimage'></a>
 ```cs
 [Test]
 public Task VerifyImage()
