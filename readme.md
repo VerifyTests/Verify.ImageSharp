@@ -24,7 +24,7 @@ Part of the <a href='https://dotnetfoundation.org' alt=''>.NET Foundation</a>
     * [Verify a file](#verify-a-file)
     * [Verify an Image](#verify-an-image)
   * [File Samples](#file-samples)
-  * [Security contact information](#security-contact-information)<!-- endtoc -->
+  * [Security contact information](#security-contact-information)<!-- endToc -->
 
 
 ## NuGet package
@@ -48,7 +48,7 @@ public class Samples
     }
 ```
 <sup><a href='/src/Tests/Samples.cs#L8-L16' title='File snippet `testdefinition` was extracted from'>snippet source</a> | <a href='#snippet-testdefinition' title='Navigate to start of snippet `testdefinition`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ### Verify a file
@@ -63,7 +63,7 @@ public Task VerifyImageFile()
 }
 ```
 <sup><a href='/src/Tests/Samples.cs#L18-L26' title='File snippet `verifyimagefile` was extracted from'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Navigate to start of snippet `verifyimagefile`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 Two files are produced
 
@@ -83,7 +83,7 @@ Samples.VerifyImageFile.info.verified.txt
 }
 ```
 <sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L6' title='File snippet `Samples.VerifyImageFile.info.verified.txt` was extracted from'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.info.verified.txt' title='Navigate to start of snippet `Samples.VerifyImageFile.info.verified.txt`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 #### Image file:
@@ -113,7 +113,7 @@ public Task VerifyImage()
 }
 ```
 <sup><a href='/src/Tests/Samples.cs#L28-L41' title='File snippet `verifyimage` was extracted from'>snippet source</a> | <a href='#snippet-verifyimage' title='Navigate to start of snippet `verifyimage`'>anchor</a></sup>
-<!-- endsnippet -->
+<!-- endSnippet -->
 
 
 ## File Samples
