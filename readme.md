@@ -37,7 +37,7 @@ https://nuget.org/packages/Verify.ImageSharp/
 Given a test with the following definition:
 
 <!-- snippet: TestDefinition -->
-<a id='17cf947a'></a>
+<a id='testdefinition'></a>
 ```cs
 [TestFixture]
 public class Samples
@@ -47,14 +47,14 @@ public class Samples
         VerifyImageSharp.Initialize();
     }
 ```
-<sup><a href='/src/Tests/Samples.cs#L8-L16' title='Snippet source file'>snippet source</a> | <a href='#17cf947a' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L8-L16' title='Snippet source file'>snippet source</a> | <a href='#testdefinition' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### Verify a file
 
 <!-- snippet: VerifyImageFile -->
-<a id='f4e2c3ad'></a>
+<a id='verifyimagefile'></a>
 ```cs
 [Test]
 public Task VerifyImageFile()
@@ -62,7 +62,7 @@ public Task VerifyImageFile()
     return Verifier.VerifyFile("sample.jpg");
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L18-L26' title='Snippet source file'>snippet source</a> | <a href='#f4e2c3ad' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L18-L26' title='Snippet source file'>snippet source</a> | <a href='#verifyimagefile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Two files are produced
@@ -73,7 +73,7 @@ Two files are produced
 Samples.VerifyImageFile.info.verified.txt
 
 <!-- snippet: Samples.VerifyImageFile.info.verified.txt -->
-<a id='a245fdc4'></a>
+<a id='Samples.VerifyImageFile.info.verified.txt'></a>
 ```txt
 {
   Width: 1599,
@@ -82,7 +82,7 @@ Samples.VerifyImageFile.info.verified.txt
   VerticalResolution: 1.0
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#a245fdc4' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#Samples.VerifyImageFile.info.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -98,7 +98,7 @@ Samples.VerifyImageFile.verified.jpg
 An instance if an `Image` can be verified using the following:
 
 <!-- snippet: VerifyImage -->
-<a id='268da4ab'></a>
+<a id='verifyimage'></a>
 ```cs
 [Test]
 public Task VerifyImage()
@@ -112,7 +112,7 @@ public Task VerifyImage()
     return Verifier.Verify(image, settings);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L28-L41' title='Snippet source file'>snippet source</a> | <a href='#268da4ab' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L28-L41' title='Snippet source file'>snippet source</a> | <a href='#verifyimage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
