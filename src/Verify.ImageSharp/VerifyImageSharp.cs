@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Bmp;
@@ -16,38 +17,34 @@ namespace VerifyTests
             VerifierSettings.RegisterFileConverter("gif", ConvertGif);
             VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
             VerifierSettings.RegisterFileConverter("png", ConvertPng);
-            VerifierSettings.RegisterFileConverter(ConvertBmpImage, (o, settings) => IsImage(o, settings, "bmp"));
-            VerifierSettings.RegisterFileConverter(ConvertGifImage, (o, settings) => IsImage(o, settings, "gif"));
-            VerifierSettings.RegisterFileConverter(ConvertJpgImage, (o, settings) => IsImage(o, settings, "jpg"));
-            VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, settings) => IsImage(o, settings, "png"));
+            VerifierSettings.RegisterFileConverter(ConvertBmpImage, (o, extension, context) => IsImage(o, extension, context, "bmp"));
+            VerifierSettings.RegisterFileConverter(ConvertGifImage, (o, extension, context) => IsImage(o, extension, context, "gif"));
+            VerifierSettings.RegisterFileConverter(ConvertJpgImage, (o, extension, context) => IsImage(o, extension, context, "jpg"));
+            VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, extension, context) => IsImage(o, extension, context, "png"));
         }
 
-        static bool IsImage(object target, VerifySettings settings, string requiredExtension)
+        static bool IsImage(object target, string? extension, IReadOnlyDictionary<string, object> context, string requiredExtension)
         {
-            if (!settings.TryGetExtension(out var extension))
-            {
-                return false;
-            }
             return target is Image &&
                    requiredExtension == extension;
         }
 
-        static ConversionResult ConvertBmpImage(object image, VerifySettings settings)
+        static ConversionResult ConvertBmpImage(object image, IReadOnlyDictionary<string, object> context)
         {
             return Convert((Image) image, "bmp", new BmpEncoder());
         }
 
-        static ConversionResult ConvertGifImage(object image, VerifySettings settings)
+        static ConversionResult ConvertGifImage(object image, IReadOnlyDictionary<string, object> context)
         {
             return Convert((Image) image, "gif", new GifEncoder());
         }
 
-        static ConversionResult ConvertJpgImage(object image, VerifySettings settings)
+        static ConversionResult ConvertJpgImage(object image, IReadOnlyDictionary<string, object> context)
         {
             return Convert((Image) image, "jpg", new JpegEncoder());
         }
 
-        static ConversionResult ConvertPngImage(object image, VerifySettings settings)
+        static ConversionResult ConvertPngImage(object image, IReadOnlyDictionary<string, object> context)
         {
             return Convert((Image) image, "png", new PngEncoder());
         }
@@ -61,22 +58,22 @@ namespace VerifyTests
             return new ConversionResult(info, extension, stream);
         }
 
-        static ConversionResult ConvertBmp(Stream stream, VerifySettings settings)
+        static ConversionResult ConvertBmp(Stream stream, IReadOnlyDictionary<string, object> context)
         {
             return Convert(stream, "bmp", new BmpDecoder());
         }
 
-        static ConversionResult ConvertGif(Stream stream, VerifySettings settings)
+        static ConversionResult ConvertGif(Stream stream, IReadOnlyDictionary<string, object> context)
         {
             return Convert(stream, "gif", new GifDecoder());
         }
 
-        static ConversionResult ConvertJpg(Stream stream, VerifySettings settings)
+        static ConversionResult ConvertJpg(Stream stream, IReadOnlyDictionary<string, object> context)
         {
             return Convert(stream, "jpg", new JpegDecoder());
         }
 
-        static ConversionResult ConvertPng(Stream stream, VerifySettings settings)
+        static ConversionResult ConvertPng(Stream stream, IReadOnlyDictionary<string, object> context)
         {
             return Convert(stream, "png", new PngDecoder());
         }
