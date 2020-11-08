@@ -3,5 +3,5 @@
   Height: 11,
   HorizontalResolution: 96.0,
   VerticalResolution: 96.0,
-  ResolutionUnits: 'PixelsPerInch'
+  ResolutionUnits: PixelsPerInch
 }

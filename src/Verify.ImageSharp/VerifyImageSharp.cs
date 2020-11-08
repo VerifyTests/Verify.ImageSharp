@@ -17,13 +17,13 @@ namespace VerifyTests
             VerifierSettings.RegisterFileConverter("gif", ConvertGif);
             VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
             VerifierSettings.RegisterFileConverter("png", ConvertPng);
-            VerifierSettings.RegisterFileConverter(ConvertBmpImage, (o, extension, context) => IsImage(o, extension, context, "bmp"));
-            VerifierSettings.RegisterFileConverter(ConvertGifImage, (o, extension, context) => IsImage(o, extension, context, "gif"));
-            VerifierSettings.RegisterFileConverter(ConvertJpgImage, (o, extension, context) => IsImage(o, extension, context, "jpg"));
-            VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, extension, context) => IsImage(o, extension, context, "png"));
+            VerifierSettings.RegisterFileConverter(ConvertBmpImage, (o, extension, _) => IsImage(o, extension, "bmp"));
+            VerifierSettings.RegisterFileConverter(ConvertGifImage, (o, extension, _) => IsImage(o, extension, "gif"));
+            VerifierSettings.RegisterFileConverter(ConvertJpgImage, (o, extension, _) => IsImage(o, extension, "jpg"));
+            VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, extension, _) => IsImage(o, extension, "png"));
         }
 
-        static bool IsImage(object target, string? extension, IReadOnlyDictionary<string, object> context, string requiredExtension)
+        static bool IsImage(object target, string? extension, string requiredExtension)
         {
             return target is Image &&
                    requiredExtension == extension;
