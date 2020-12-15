@@ -100,12 +100,10 @@ public Task VerifyImage()
     {
         [5, 5] = Rgba32.ParseHex("#0000FF")
     };
-    var settings = new VerifySettings();
-    settings.UseExtension("png");
-    return Verifier.Verify(image, settings);
+    return Verifier.Verify(image).UseExtension("png");
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L28-L41' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L28-L39' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
