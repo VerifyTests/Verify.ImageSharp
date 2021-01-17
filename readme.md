@@ -63,10 +63,10 @@ Two files are produced
 
 #### Info file:
 
-Samples.VerifyImageFile.info.verified.txt
+Samples.VerifyImageFile.00.verified.txt
 
-<!-- snippet: Samples.VerifyImageFile.info.verified.txt -->
-<a id='snippet-Samples.VerifyImageFile.info.verified.txt'></a>
+<!-- snippet: Samples.VerifyImageFile.00.verified.txt -->
+<a id='snippet-Samples.VerifyImageFile.00.verified.txt'></a>
 ```txt
 {
   Width: 1599,
@@ -75,7 +75,7 @@ Samples.VerifyImageFile.info.verified.txt
   VerticalResolution: 1.0
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyImageFile.info.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.info.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyImageFile.00.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.00.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
