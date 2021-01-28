@@ -2,7 +2,7 @@
 <Project>
   <PropertyGroup>
     <NoWarn>CS1591;CS0649</NoWarn>
-    <Version>3.5.0</Version>
+    <Version>3.5.1</Version>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageTags>ImageSharp, Verify</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow verification via ImageSharp (https://github.com/SixLabors/ImageSharp).</Description>
