@@ -4,7 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.2" />
-    <PackageReference Include="Verify" Version="10.6.2" />
+    <PackageReference Include="Verify" Version="10.7.0" />
     <PackageReference Include="ProjectDefaults" Version="1.0.53" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
   </ItemGroup>
