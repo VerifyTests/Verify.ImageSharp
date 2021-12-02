@@ -1,8 +1,5 @@
 ﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using VerifyTests;
-using VerifyNUnit;
-using NUnit.Framework;
 
 #region TestDefinition
 [TestFixture]
