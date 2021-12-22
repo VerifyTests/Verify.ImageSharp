@@ -16,7 +16,7 @@ public class Samples
     [Test]
     public Task VerifyImageFile()
     {
-        return Verifier.VerifyFile("sample.jpg");
+        return VerifyFile("sample.jpg");
     }
 
     #endregion
@@ -30,7 +30,7 @@ public class Samples
         {
             [5, 5] = Rgba32.ParseHex("#0000FF")
         };
-        return Verifier.Verify(image).UseExtension("png");
+        return Verify(image).UseExtension("png");
     }
     #endregion
 }
