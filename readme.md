@@ -41,7 +41,7 @@ public class Samples
 [Test]
 public Task VerifyImageFile()
 {
-    return Verifier.VerifyFile("sample.jpg");
+    return VerifyFile("sample.jpg");
 }
 ```
 <sup><a href='/src/Tests/Samples.cs#L14-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Start of snippet'>anchor</a></sup>
@@ -89,7 +89,7 @@ public Task VerifyImage()
     {
         [5, 5] = Rgba32.ParseHex("#0000FF")
     };
-    return Verifier.Verify(image).UseExtension("png");
+    return Verify(image).UseExtension("png");
 }
 ```
 <sup><a href='/src/Tests/Samples.cs#L24-L35' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
