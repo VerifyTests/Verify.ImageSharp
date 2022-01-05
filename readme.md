@@ -72,7 +72,7 @@ Samples.VerifyImageFile.00.verified.txt
 
 Samples.VerifyImageFile.verified.jpg
 
-<img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
+<img src="/src/Tests/Samples.VerifyImageFile.01.verified.jpg" width="200px">
 
 
 ### Verify an Image
