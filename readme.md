@@ -72,7 +72,7 @@ Samples.VerifyImageFile.00.verified.txt
 
 Samples.VerifyImageFile.verified.jpg
 
-<img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
+<img src="/src/Tests/Samples.VerifyImageFile.01.verified.jpg" width="200px">
 
 
 ### Verify an Image
@@ -104,4 +104,4 @@ http://file-examples.com/
 
 ## Icon
 
-[Swirl](https://thenounproject.com/term/pattern/2719636/) designed by [B�CK, RU](https://thenounproject.com/titaniclast/) from [The Noun Project](https://thenounproject.com).
+[Swirl](https://thenounproject.com/term/pattern/2719636/) designed by [BÖCK, RU](https://thenounproject.com/titaniclast/) from [The Noun Project](https://thenounproject.com).
