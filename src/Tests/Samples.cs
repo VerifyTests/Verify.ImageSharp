@@ -52,7 +52,6 @@ public class Samples
         catch (Exception ex)
         {
             Assert.AreEqual("VerifyException", ex.GetType().Name);
-            throw;
         }
     }
 
