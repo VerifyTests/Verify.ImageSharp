@@ -28,7 +28,7 @@ public class Samples
     {
         var image = new Image<Rgba32>(11, 11)
         {
-            [5, 5] = Rgba32.ParseHex("#0000FF")
+            [5, 5] = Rgba32.ParseHex("#0001FF")
         };
         return Verify(image).UseExtension("png");
     }
