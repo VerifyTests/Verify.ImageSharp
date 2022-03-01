@@ -23,7 +23,7 @@ public static class VerifyImageSharp
 
     static bool IsImage(object target, string? extension, string requiredExtension)
     {
-        return target is Image; // && requiredExtension == extension;
+        return target is Image && (extension == null || requiredExtension == extension);
     }
 
     static ConversionResult ConvertBmpImage(object image, IReadOnlyDictionary<string, object> context)
