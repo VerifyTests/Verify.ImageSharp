@@ -36,7 +36,7 @@ public class Samples
 
     #region VerifyFailsCorrectly
     [Test]
-    public async Task VerifyFailsCorrectly()
+    public void VerifyFailsCorrectly()
     {
         var image = new Image<Rgba32>(11, 11)
         {
@@ -45,14 +45,12 @@ public class Samples
 
         ClearFiles();
 
-        try
+        var ex = Assert.ThrowsAsync(Is.AssignableTo<Exception>(), async () =>
         {
-            await Verify(image).UseExtension("png");
-        }
-        catch (Exception ex)
-        {
-            Assert.AreEqual("VerifyException", ex.GetType().Name);
-        }
+            await Verify(image); // .UseExtension("png");
+        });
+
+        Assert.AreEqual("VerifyException", ex?.GetType().Name);
     }
 
     private void ClearFiles([CallerFilePath] string sourceFile = "")
@@ -64,5 +62,5 @@ public class Samples
             File.Delete(file);
         }
     }
-#endregion
+    #endregion
 }

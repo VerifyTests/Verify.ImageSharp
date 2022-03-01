@@ -11,20 +11,19 @@ public static class VerifyImageSharp
 {
     public static void Initialize()
     {
+        VerifierSettings.RegisterFileConverter("png", ConvertPng);
         VerifierSettings.RegisterFileConverter("bmp", ConvertBmp);
         VerifierSettings.RegisterFileConverter("gif", ConvertGif);
         VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
-        VerifierSettings.RegisterFileConverter("png", ConvertPng);
+        VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, extension, _) => IsImage(o, extension, "png"));
         VerifierSettings.RegisterFileConverter(ConvertBmpImage, (o, extension, _) => IsImage(o, extension, "bmp"));
         VerifierSettings.RegisterFileConverter(ConvertGifImage, (o, extension, _) => IsImage(o, extension, "gif"));
         VerifierSettings.RegisterFileConverter(ConvertJpgImage, (o, extension, _) => IsImage(o, extension, "jpg"));
-        VerifierSettings.RegisterFileConverter(ConvertPngImage, (o, extension, _) => IsImage(o, extension, "png"));
     }
 
     static bool IsImage(object target, string? extension, string requiredExtension)
     {
-        return target is Image &&
-               requiredExtension == extension;
+        return target is Image; // && requiredExtension == extension;
     }
 
     static ConversionResult ConvertBmpImage(object image, IReadOnlyDictionary<string, object> context)
