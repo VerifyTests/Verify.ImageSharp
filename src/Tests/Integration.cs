@@ -162,6 +162,28 @@ public class Integration
     }
 
     [Test]
+    public void VerifyFailsCorrectly_TextExistMatchingImageDifferentWithBmp()
+    {
+        var context = new Context();
+
+        context.ClearFiles();
+
+        var bmpFiles = expectedFiles.Select(item => item.Replace(".png", ".bmp")).ToArray();
+
+        var textFile = context.GetFullName(bmpFiles[1]);
+        File.WriteAllText(textFile, expectedText);
+        var imageFile = context.GetFullName(bmpFiles[3]);
+        green.SaveAsPng(imageFile);
+
+        var ex = Assert.ThrowsAsync(Is.AssignableTo<Exception>(), async () =>
+        {
+            await Verify(red).UseExtension("bmp");
+        });
+        Assert.AreEqual("VerifyException", ex?.GetType().Name, ex?.Message);
+        Assert.AreEqual(bmpFiles, context.GetFileKeys(), string.Join(", ", context.GetFileKeys()));
+    }
+
+    [Test]
     public async Task VerifySucceeds_TextAndImageMatching()
     {
         var context = new Context();
