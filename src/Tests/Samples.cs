@@ -2,6 +2,7 @@
 using SixLabors.ImageSharp.PixelFormats;
 
 #region TestDefinition
+
 [TestFixture]
 public class Samples
 {
@@ -9,6 +10,7 @@ public class Samples
     {
         VerifyImageSharp.Initialize();
     }
+
     #endregion
 
     #region VerifyImageFile
@@ -17,6 +19,17 @@ public class Samples
     public Task VerifyImageFile()
     {
         return VerifyFile("sample.jpg");
+    }
+
+    #endregion
+
+    #region VerifyImageFile
+
+    [Test]
+    public Task VerifyImageFileWithCustomEncoder()
+    {
+        return VerifyFile("sample.jpg")
+            .EncodeAsPng();
     }
 
     #endregion
@@ -30,7 +43,23 @@ public class Samples
         {
             [5, 5] = Rgba32.ParseHex("#0000FF")
         };
-        return Verify(image).UseExtension("png");
+        return Verify(image);
     }
+
+    #endregion
+
+    #region VerifyImageWithCustomEncoder
+
+    [Test]
+    public Task VerifyImageWithCustomEncoder()
+    {
+        var image = new Image<Rgba32>(11, 11)
+        {
+            [5, 5] = Rgba32.ParseHex("#0000FF")
+        };
+        return Verify(image)
+            .EncodeAsJpeg();
+    }
+
     #endregion
 }
