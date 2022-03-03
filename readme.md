@@ -6,7 +6,6 @@
 Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [ImageSharp](https://github.com/SixLabors/ImageSharp).
 
 
-
 ## NuGet package
 
 https://nuget.org/packages/Verify.ImageSharp/
@@ -27,7 +26,7 @@ public class Samples
         VerifyImageSharp.Initialize();
     }
 ```
-<sup><a href='/src/Tests/Samples.cs#L4-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-testdefinition' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L4-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-testdefinition' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -42,7 +41,17 @@ public Task VerifyImageFile()
     return VerifyFile("sample.jpg");
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L14-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L16-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-verifyimagefile-1'></a>
+```cs
+[Test]
+public Task VerifyImageFileWithCustomEncoder()
+{
+    return VerifyFile("sample.jpg")
+        .EncodeAsPng();
+}
+```
+<sup><a href='/src/Tests/Samples.cs#L26-L35' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Two files are produced
@@ -52,7 +61,7 @@ Two files are produced
 
 Samples.VerifyImageFile.00.verified.txt
 
-<!-- snippet: Samples.VerifyImageFile.00.verified.txt -->
+<!-- snip2pet: Samples.VerifyImageFile.00.verified.txt -->
 <a id='snippet-Samples.VerifyImageFile.00.verified.txt'></a>
 ```txt
 {
@@ -87,10 +96,10 @@ public Task VerifyImage()
     {
         [5, 5] = Rgba32.ParseHex("#0000FF")
     };
-    return Verify(image).UseExtension("png");
+    return Verify(image);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L24-L35' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L37-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
