@@ -21,12 +21,10 @@ Given a test with the following definition:
 [TestFixture]
 public class Samples
 {
-    static Samples()
-    {
+    static Samples() =>
         VerifyImageSharp.Initialize();
-    }
 ```
-<sup><a href='/src/Tests/Samples.cs#L4-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-testdefinition' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L4-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-testdefinition' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -36,22 +34,18 @@ public class Samples
 <a id='snippet-verifyimagefile'></a>
 ```cs
 [Test]
-public Task VerifyImageFile()
-{
-    return VerifyFile("sample.jpg");
-}
+public Task VerifyImageFile() =>
+    VerifyFile("sample.jpg");
 ```
-<sup><a href='/src/Tests/Samples.cs#L16-L24' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L14-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-verifyimagefile-1'></a>
 ```cs
 [Test]
-public Task VerifyImageFileWithCustomEncoder()
-{
-    return VerifyFile("sample.jpg")
+public Task VerifyImageFileWithCustomEncoder() =>
+    VerifyFile("sample.jpg")
         .EncodeAsPng();
-}
 ```
-<sup><a href='/src/Tests/Samples.cs#L26-L35' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L22-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Two files are produced
@@ -99,7 +93,7 @@ public Task VerifyImage()
     return Verify(image);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L37-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L31-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
