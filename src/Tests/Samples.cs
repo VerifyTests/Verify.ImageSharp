@@ -6,31 +6,25 @@ using SixLabors.ImageSharp.PixelFormats;
 [TestFixture]
 public class Samples
 {
-    static Samples()
-    {
+    static Samples() =>
         VerifyImageSharp.Initialize();
-    }
 
     #endregion
 
     #region VerifyImageFile
 
     [Test]
-    public Task VerifyImageFile()
-    {
-        return VerifyFile("sample.jpg");
-    }
+    public Task VerifyImageFile() =>
+        VerifyFile("sample.jpg");
 
     #endregion
 
     #region VerifyImageFile
 
     [Test]
-    public Task VerifyImageFileWithCustomEncoder()
-    {
-        return VerifyFile("sample.jpg")
+    public Task VerifyImageFileWithCustomEncoder() =>
+        VerifyFile("sample.jpg")
             .EncodeAsPng();
-    }
 
     #endregion
 

@@ -41,10 +41,8 @@ public static class VerifyImageSharp
         settings.Context["ImageSharpExtension"] = extension;
     }
 
-    public static void EncodeAsPng(this VerifySettings settings, PngEncoder? encoder = null)
-    {
+    public static void EncodeAsPng(this VerifySettings settings, PngEncoder? encoder = null) =>
         settings.EncodeAs<PngEncoder>("png", encoder);
-    }
 
     public static SettingsTask EncodeAsPng(this SettingsTask settings, PngEncoder? encoder = null)
     {
@@ -58,10 +56,8 @@ public static class VerifyImageSharp
         return settings;
     }
 
-    public static void EncodeAsGif(this VerifySettings settings, GifEncoder? encoder = null)
-    {
+    public static void EncodeAsGif(this VerifySettings settings, GifEncoder? encoder = null) =>
         settings.EncodeAs<GifEncoder>("gif", encoder);
-    }
 
     public static SettingsTask EncodeAsTiff(this SettingsTask settings, TiffEncoder? encoder = null)
     {
@@ -69,10 +65,8 @@ public static class VerifyImageSharp
         return settings;
     }
 
-    public static void EncodeAsTiff(this VerifySettings settings, TiffEncoder? encoder = null)
-    {
+    public static void EncodeAsTiff(this VerifySettings settings, TiffEncoder? encoder = null) =>
         settings.EncodeAs<TiffEncoder>("tif", encoder);
-    }
 
     public static SettingsTask EncodeAsBmp(this SettingsTask settings, BmpEncoder? encoder = null)
     {
@@ -80,10 +74,8 @@ public static class VerifyImageSharp
         return settings;
     }
 
-    public static void EncodeAsBmp(this VerifySettings settings, BmpEncoder? encoder = null)
-    {
+    public static void EncodeAsBmp(this VerifySettings settings, BmpEncoder? encoder = null) =>
         settings.EncodeAs<BmpEncoder>("bmp", encoder);
-    }
 
     public static SettingsTask EncodeAsJpeg(this SettingsTask settings, JpegEncoder? encoder = null)
     {
@@ -91,10 +83,8 @@ public static class VerifyImageSharp
         return settings;
     }
 
-    public static void EncodeAsJpeg(this VerifySettings settings, JpegEncoder? encoder = null)
-    {
+    public static void EncodeAsJpeg(this VerifySettings settings, JpegEncoder? encoder = null) =>
         settings.EncodeAs<JpegEncoder>("jpg", encoder);
-    }
 
     static ConversionResult Convert(Image image, string extension, IImageEncoder encoder)
     {
@@ -105,30 +95,20 @@ public static class VerifyImageSharp
         return new(info, extension, stream);
     }
 
-    static ConversionResult ConvertBmp(Stream stream, IReadOnlyDictionary<string, object> context)
-    {
-        return Convert<BmpDecoder, BmpEncoder>(stream, "bmp", context);
-    }
+    static ConversionResult ConvertBmp(Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<BmpDecoder, BmpEncoder>(stream, "bmp", context);
 
-    static ConversionResult ConvertGif(Stream stream, IReadOnlyDictionary<string, object> context)
-    {
-        return Convert<GifDecoder, GifEncoder>(stream, "gif", context);
-    }
+    static ConversionResult ConvertGif(Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<GifDecoder, GifEncoder>(stream, "gif", context);
 
-    static ConversionResult ConvertJpg(Stream stream, IReadOnlyDictionary<string, object> context)
-    {
-        return Convert<JpegDecoder, JpegEncoder>(stream, "jpg", context);
-    }
+    static ConversionResult ConvertJpg(Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<JpegDecoder, JpegEncoder>(stream, "jpg", context);
 
-    static ConversionResult ConvertPng(Stream stream, IReadOnlyDictionary<string, object> context)
-    {
-        return Convert<PngDecoder, PngEncoder>(stream, "png", context);
-    }
+    static ConversionResult ConvertPng(Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<PngDecoder, PngEncoder>(stream, "png", context);
 
-    static ConversionResult ConvertTiff(Stream stream, IReadOnlyDictionary<string, object> context)
-    {
-        return Convert<TiffDecoder, TiffEncoder>(stream, "tif", context);
-    }
+    static ConversionResult ConvertTiff(Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<TiffDecoder, TiffEncoder>(stream, "tif", context);
 
     static ConversionResult Convert<TDecoder, TEncoder>(Stream stream, string extension, IReadOnlyDictionary<string, object> context)
         where TDecoder : IImageDecoder, new()
