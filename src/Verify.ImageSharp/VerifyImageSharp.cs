@@ -37,7 +37,6 @@ public static class VerifyImageSharp
         where TEncoder : IImageEncoder, new()
     {
         settings.Context["ImageSharpEncoder"] = encoder ?? new TEncoder();
-        ;
         settings.Context["ImageSharpExtension"] = extension;
     }
 
