@@ -1,16 +1,9 @@
 ﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-#region TestDefinition
-
 [TestFixture]
 public class Samples
 {
-    static Samples() =>
-        VerifyImageSharp.Initialize();
-
-    #endregion
-
     #region VerifyImageFile
 
     [Test]
