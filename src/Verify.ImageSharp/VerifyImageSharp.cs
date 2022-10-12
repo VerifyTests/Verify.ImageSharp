@@ -22,17 +22,6 @@ public static class VerifyImageSharp
         VerifierSettings.RegisterFileConverter<Image>((image, context) => ConvertImage(image, context, "png", encoder));
     }
 
-    static ConversionResult ConvertImage(Image image, IReadOnlyDictionary<string, object> context, string extension, IImageEncoder encoder)
-    {
-        if (context.TryGetValue("ImageSharpEncoder", out var encoderValue))
-        {
-            extension = (string) context["ImageSharpExtension"];
-            encoder = (IImageEncoder) encoderValue;
-        }
-
-        return Convert(image, extension, encoder);
-    }
-
     static void EncodeAs<TEncoder>(this VerifySettings settings, string extension, IImageEncoder? encoder)
         where TEncoder : IImageEncoder, new()
     {
@@ -85,14 +74,6 @@ public static class VerifyImageSharp
     public static void EncodeAsJpeg(this VerifySettings settings, JpegEncoder? encoder = null) =>
         settings.EncodeAs<JpegEncoder>("jpg", encoder);
 
-    static ConversionResult Convert(Image image, string extension, IImageEncoder encoder)
-    {
-        var stream = new MemoryStream();
-        var info = image.GetInfo();
-        image.Save(stream, encoder);
-        stream.Position = 0;
-        return new(info, extension, stream);
-    }
 
     static ConversionResult ConvertBmp(Stream stream, IReadOnlyDictionary<string, object> context) =>
         Convert<BmpDecoder, BmpEncoder>(stream, "bmp", context);
@@ -113,8 +94,23 @@ public static class VerifyImageSharp
         where TDecoder : IImageDecoder, new()
         where TEncoder : IImageEncoder, new()
     {
-        var image = Image.Load(stream, new TDecoder());
+        using var image = Image.Load(stream, new TDecoder());
         stream.Position = 0;
         return ConvertImage(image, context, extension, new TEncoder());
+    }
+
+    static ConversionResult ConvertImage(Image image, IReadOnlyDictionary<string, object> context, string extension, IImageEncoder encoder)
+    {
+        if (context.TryGetValue("ImageSharpEncoder", out var encoderValue))
+        {
+            extension = (string) context["ImageSharpExtension"];
+            encoder = (IImageEncoder) encoderValue;
+        }
+
+        var stream = new MemoryStream();
+        var info = image.GetInfo();
+        image.Save(stream, encoder);
+        stream.Position = 0;
+        return new(info, extension, stream);
     }
 }
