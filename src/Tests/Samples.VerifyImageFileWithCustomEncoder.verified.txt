@@ -1,6 +1,14 @@
-﻿{
-  Width: 1599,
-  Height: 1066,
-  HorizontalResolution: 1.0,
-  VerticalResolution: 1.0
-}
+﻿[
+  {
+    Width: 1599,
+    Height: 1066,
+    HorizontalResolution: 1.0,
+    VerticalResolution: 1.0
+  },
+  {
+    Width: 1599,
+    Height: 1066,
+    HorizontalResolution: 1.0,
+    VerticalResolution: 1.0
+  }
+]
