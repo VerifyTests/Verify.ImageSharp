@@ -50,10 +50,10 @@ Two files are produced
 
 #### Info file:
 
-Samples.VerifyImageFile.00.verified.txt
+Samples.VerifyImageFile.verified.txt
 
-<!-- snip2pet: Samples.VerifyImageFile.00.verified.txt -->
-<a id='snippet-Samples.VerifyImageFile.00.verified.txt'></a>
+<!-- snippet: Samples.VerifyImageFile.verified.txt -->
+<a id='snippet-Samples.VerifyImageFile.verified.txt'></a>
 ```txt
 {
   Width: 1599,
@@ -62,7 +62,7 @@ Samples.VerifyImageFile.00.verified.txt
   VerticalResolution: 1.0
 }
 ```
-<sup><a href='/src/Tests/Samples.VerifyImageFile.00.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.00.verified.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.VerifyImageFile.verified.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.VerifyImageFile.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
