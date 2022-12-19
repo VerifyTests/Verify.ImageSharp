@@ -12,6 +12,7 @@ public static class VerifyImageSharp
 {
     public static void Initialize()
     {
+        InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings.RegisterFileConverter("bmp", ConvertBmp);
         VerifierSettings.RegisterFileConverter("gif", ConvertGif);
         VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
