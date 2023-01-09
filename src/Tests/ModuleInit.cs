@@ -3,12 +3,12 @@
     #region enable
 
     [ModuleInitializer]
-    public static void Init()
-    {
+    public static void Init() =>
         VerifyImageSharp.Initialize();
 
-        #endregion
+    #endregion
 
-        VerifyDiffPlex.Initialize();
-    }
+    [ModuleInitializer]
+    public static void InitOther() =>
+        VerifyImageSharp.Initialize();
 }
