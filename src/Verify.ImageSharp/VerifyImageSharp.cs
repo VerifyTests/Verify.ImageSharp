@@ -10,8 +10,17 @@ namespace VerifyTests;
 
 public static class VerifyImageSharp
 {
+    public static bool Initialized { get; private set; }
+
     public static void Initialize()
     {
+        if (Initialized)
+        {
+            throw new("Already Initialized");
+        }
+
+        Initialized = true;
+
         InnerVerifier.ThrowIfVerifyHasBeenRun();
         VerifierSettings.RegisterFileConverter("bmp", ConvertBmp);
         VerifierSettings.RegisterFileConverter("gif", ConvertGif);

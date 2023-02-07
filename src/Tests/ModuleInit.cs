@@ -7,8 +7,4 @@
         VerifyImageSharp.Initialize();
 
     #endregion
-
-    [ModuleInitializer]
-    public static void InitOther() =>
-        VerifyImageSharp.Initialize();
 }
