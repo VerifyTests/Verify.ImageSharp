@@ -1,5 +1,4 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats;
+﻿using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Bmp;
 using SixLabors.ImageSharp.Formats.Gif;
 using SixLabors.ImageSharp.Formats.Jpeg;
@@ -86,25 +85,24 @@ public static class VerifyImageSharp
 
 
     static ConversionResult ConvertBmp(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<BmpDecoder, BmpEncoder>(stream, "bmp", context);
+        Convert<BmpEncoder>(BmpDecoder.Instance, stream, "bmp", context);
 
     static ConversionResult ConvertGif(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<GifDecoder, GifEncoder>(stream, "gif", context);
+        Convert<GifEncoder>(GifDecoder.Instance, stream, "gif", context);
 
     static ConversionResult ConvertJpg(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<JpegDecoder, JpegEncoder>(stream, "jpg", context);
+        Convert<JpegEncoder>(JpegDecoder.Instance, stream, "jpg", context);
 
     static ConversionResult ConvertPng(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<PngDecoder, PngEncoder>(stream, "png", context);
+        Convert<PngEncoder>(PngDecoder.Instance, stream, "png", context);
 
     static ConversionResult ConvertTiff(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<TiffDecoder, TiffEncoder>(stream, "tif", context);
+        Convert<TiffEncoder>(TiffDecoder.Instance, stream, "tif", context);
 
-    static ConversionResult Convert<TDecoder, TEncoder>(Stream stream, string extension, IReadOnlyDictionary<string, object> context)
-        where TDecoder : IImageDecoder, new()
+    static ConversionResult Convert<TEncoder>(IImageDecoder decoder, Stream stream, string extension, IReadOnlyDictionary<string, object> context)
         where TEncoder : IImageEncoder, new()
     {
-        using var image = Image.Load(stream, new TDecoder());
+        using var image = decoder.Decode(new(), stream);
         stream.Position = 0;
         return ConvertImage(image, context, extension, new TEncoder());
     }
