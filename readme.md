@@ -73,9 +73,9 @@ Samples.VerifyImageFile.verified.jpg
 <img src="/src/Tests/Samples.VerifyImageFile.verified.jpg" width="200px">
 
 
-### Verify an Image
+### Verify an SixLabors.ImageSharp.Image
 
-An instance if an `Image` can be verified using the following:
+An instance if an `SixLabors.ImageSharp.Image` can be verified using the following:
 
 <!-- snippet: VerifyImage -->
 <a id='snippet-verifyimage'></a>
