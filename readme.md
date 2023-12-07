@@ -101,7 +101,6 @@ public Task VerifyImage()
 http://file-examples.com/
 
 
-
 ## Icon
 
 [Swirl](https://thenounproject.com/term/pattern/2719636/) designed by [BÖCK, RU](https://thenounproject.com/titaniclast/) from [The Noun Project](https://thenounproject.com).
