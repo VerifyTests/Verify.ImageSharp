@@ -11,7 +11,7 @@ static class InfoBuilder
             image.Height,
             metadata.HorizontalResolution,
             metadata.VerticalResolution,
-            metadata.ResolutionUnits,
+            metadata.ResolutionUnits
         };
     }
 }
