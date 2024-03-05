@@ -8,7 +8,6 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <PackageTags>ImageSharp, Verify</PackageTags>
     <Description>Extends Verify (https://github.com/VerifyTests/Verify) to allow verification via ImageSharp (https://github.com/SixLabors/ImageSharp).</Description>
-    <SignAssembly>false</SignAssembly>
     <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
   </PropertyGroup>
