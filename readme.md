@@ -30,21 +30,21 @@ public static void Init() =>
 ### Verify a file
 
 <!-- snippet: VerifyImageFile -->
-<a id='snippet-verifyimagefile'></a>
+<a id='snippet-VerifyImageFile'></a>
 ```cs
 [Test]
 public Task VerifyImageFile() =>
     VerifyFile("sample.jpg");
 ```
-<sup><a href='/src/Tests/Samples.cs#L7-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile' title='Start of snippet'>anchor</a></sup>
-<a id='snippet-verifyimagefile-1'></a>
+<sup><a href='/src/Tests/Samples.cs#L7-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImageFile' title='Start of snippet'>anchor</a></sup>
+<a id='snippet-VerifyImageFile-1'></a>
 ```cs
 [Test]
 public Task VerifyImageFileWithCustomEncoder() =>
     VerifyFile("sample.jpg")
         .EncodeAsPng();
 ```
-<sup><a href='/src/Tests/Samples.cs#L15-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimagefile-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L15-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImageFile-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Two files are produced
@@ -80,7 +80,7 @@ Samples.VerifyImageFile.verified.jpg
 An instance if an `SixLabors.ImageSharp.Image` can be verified using the following:
 
 <!-- snippet: VerifyImage -->
-<a id='snippet-verifyimage'></a>
+<a id='snippet-VerifyImage'></a>
 ```cs
 [Test]
 public Task VerifyImage()
@@ -92,7 +92,7 @@ public Task VerifyImage()
     return Verify(image);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L24-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-verifyimage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L24-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
