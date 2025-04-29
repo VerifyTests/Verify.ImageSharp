@@ -1,6 +1,4 @@
-﻿using SixLabors.ImageSharp;
-
-static class InfoBuilder
+﻿static class InfoBuilder
 {
     public static object GetInfo(this Image image)
     {
