@@ -1,8 +1,4 @@
-﻿using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Formats.Png;
-using SixLabors.ImageSharp.Formats.Tiff;
-
-namespace VerifyTests;
+﻿namespace VerifyTests;
 
 public static class VerifyImageSharp
 {
@@ -18,14 +14,14 @@ public static class VerifyImageSharp
         Initialized = true;
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
-        VerifierSettings.RegisterFileConverter("bmp", ConvertBmp);
-        VerifierSettings.RegisterFileConverter("gif", ConvertGif);
-        VerifierSettings.RegisterFileConverter("jpg", ConvertJpg);
-        VerifierSettings.RegisterFileConverter("png", ConvertPng);
-        VerifierSettings.RegisterFileConverter("tif", ConvertTiff);
+        VerifierSettings.RegisterStreamConverter("bmp", ConvertBmp);
+        VerifierSettings.RegisterStreamConverter("gif", ConvertGif);
+        VerifierSettings.RegisterStreamConverter("jpg", ConvertJpg);
+        VerifierSettings.RegisterStreamConverter("png", ConvertPng);
+        VerifierSettings.RegisterStreamConverter("tif", ConvertTiff);
 
         var encoder = new PngEncoder();
-        VerifierSettings.RegisterFileConverter<Image>((image, context) => ConvertImage(image, context, "png", encoder));
+        VerifierSettings.RegisterFileConverter<Image>((image, context) => ConvertImage(null, image, context, "png", encoder));
     }
 
     static void EncodeAs<TEncoder>(this VerifySettings settings, string extension, IImageEncoder? encoder)
@@ -80,31 +76,30 @@ public static class VerifyImageSharp
     public static void EncodeAsJpeg(this VerifySettings settings, JpegEncoder? encoder = null) =>
         settings.EncodeAs<JpegEncoder>("jpg", encoder);
 
+    static ConversionResult ConvertBmp(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<BmpEncoder>(name, BmpDecoder.Instance, stream, "bmp", context);
 
-    static ConversionResult ConvertBmp(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<BmpEncoder>(BmpDecoder.Instance, stream, "bmp", context);
+    static ConversionResult ConvertGif(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<GifEncoder>(name, GifDecoder.Instance, stream, "gif", context);
 
-    static ConversionResult ConvertGif(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<GifEncoder>(GifDecoder.Instance, stream, "gif", context);
+    static ConversionResult ConvertJpg(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<JpegEncoder>(name, JpegDecoder.Instance, stream, "jpg", context);
 
-    static ConversionResult ConvertJpg(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<JpegEncoder>(JpegDecoder.Instance, stream, "jpg", context);
+    static ConversionResult ConvertPng(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<PngEncoder>(name, PngDecoder.Instance, stream, "png", context);
 
-    static ConversionResult ConvertPng(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<PngEncoder>(PngDecoder.Instance, stream, "png", context);
+    static ConversionResult ConvertTiff(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
+        Convert<TiffEncoder>(name, TiffDecoder.Instance, stream, "tif", context);
 
-    static ConversionResult ConvertTiff(Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<TiffEncoder>(TiffDecoder.Instance, stream, "tif", context);
-
-    static ConversionResult Convert<TEncoder>(IImageDecoder decoder, Stream stream, string extension, IReadOnlyDictionary<string, object> context)
+    static ConversionResult Convert<TEncoder>(string? name, IImageDecoder decoder, Stream stream, string extension, IReadOnlyDictionary<string, object> context)
         where TEncoder : IImageEncoder, new()
     {
         using var image = decoder.Decode(new(), stream);
         stream.Position = 0;
-        return ConvertImage(image, context, extension, new TEncoder());
+        return ConvertImage(name, image, context, extension, new TEncoder());
     }
 
-    static ConversionResult ConvertImage(Image image, IReadOnlyDictionary<string, object> context, string extension, IImageEncoder encoder)
+    static ConversionResult ConvertImage(string? name, Image image, IReadOnlyDictionary<string, object> context, string extension, IImageEncoder encoder)
     {
         if (context.TryGetValue("ImageSharpEncoder", out var encoderValue))
         {
@@ -116,6 +111,6 @@ public static class VerifyImageSharp
         var info = image.GetInfo();
         image.Save(stream, encoder);
         stream.Position = 0;
-        return new(info, extension, stream);
+        return new(info, [new(extension, stream, name)]);
     }
 }
