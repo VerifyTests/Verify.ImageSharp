@@ -1,7 +1,7 @@
 # <img src="/src/icon.png" height="30px"> Verify.ImageSharp
 
 [![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
-[![Build status](https://ci.appveyor.com/api/projects/status/o30f8u47l7vv5844?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-ImageSharp)
+[![Build status](https://img.shields.io/appveyor/build/SimonCropp/Verify-ImageSharp)](https://ci.appveyor.com/project/SimonCropp/Verify-ImageSharp)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.ImageSharp.svg)](https://www.nuget.org/packages/Verify.ImageSharp/)
 
 Extends [Verify](https://github.com/VerifyTests/Verify) to allow verification of documents via [ImageSharp](https://github.com/SixLabors/ImageSharp).<!-- singleLineInclude: intro. path: /docs/intro.include.md -->
