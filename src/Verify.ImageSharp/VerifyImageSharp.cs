@@ -124,6 +124,7 @@ public static class VerifyImageSharp
     static ConversionResult Convert<TEncoder>(string? name, IImageDecoder decoder, Stream stream, string extension, IReadOnlyDictionary<string, object> context)
         where TEncoder : IImageEncoder, new()
     {
+        stream.Position = 0;
         using var image = decoder.Decode(new(), stream);
         stream.Position = 0;
         return ConvertImage(name, image, context, extension, new TEncoder());

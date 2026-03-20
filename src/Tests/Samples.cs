@@ -49,4 +49,17 @@ public class Samples
     }
 
     #endregion
+
+    [Test]
+    public Task StreamWithNonZeroPosition()
+    {
+        var image = new Image<Rgba32>(11, 11)
+        {
+            [5, 5] = Rgba32.ParseHex("#FF0000")
+        };
+        var stream = new MemoryStream();
+        image.SaveAsPng(stream);
+        // intentionally leave stream.Position at end
+        return Verify(stream, "png");
+    }
 }
