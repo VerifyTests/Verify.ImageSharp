@@ -4,7 +4,7 @@ public static class VerifyImageSharp
 {
     public static bool Initialized { get; private set; }
 
-    public static void Initialize()
+    public static void Initialize(double ssimThreshold = 1.0)
     {
         if (Initialized)
         {
@@ -20,8 +20,38 @@ public static class VerifyImageSharp
         VerifierSettings.RegisterStreamConverter("png", ConvertPng);
         VerifierSettings.RegisterStreamConverter("tif", ConvertTiff);
 
+        if (ssimThreshold < 1.0)
+        {
+            Task<CompareResult> Compare(Stream received, Stream verified, IReadOnlyDictionary<string, object> context)
+            {
+                var threshold = context.TryGetValue("ImageSharpSsimThreshold", out var value)
+                    ? (double) value
+                    : ssimThreshold;
+                var ssim = SsimComparer.Calculate(received, verified);
+                var result = ssim >= threshold
+                    ? CompareResult.Equal
+                    : CompareResult.NotEqual($"SSIM: {ssim:F6}, threshold: {threshold:F6}");
+                return Task.FromResult(result);
+            }
+
+            VerifierSettings.RegisterStreamComparer("bmp", Compare);
+            VerifierSettings.RegisterStreamComparer("gif", Compare);
+            VerifierSettings.RegisterStreamComparer("jpg", Compare);
+            VerifierSettings.RegisterStreamComparer("png", Compare);
+            VerifierSettings.RegisterStreamComparer("tif", Compare);
+        }
+
         var encoder = new PngEncoder();
         VerifierSettings.RegisterFileConverter<Image>((image, context) => ConvertImage(null, image, context, "png", encoder));
+    }
+
+    public static void SsimThreshold(this VerifySettings settings, double threshold) =>
+        settings.Context["ImageSharpSsimThreshold"] = threshold;
+
+    public static SettingsTask SsimThreshold(this SettingsTask settings, double threshold)
+    {
+        settings.CurrentSettings.SsimThreshold(threshold);
+        return settings;
     }
 
     static void EncodeAs<TEncoder>(this VerifySettings settings, string extension, IImageEncoder? encoder)

@@ -110,6 +110,52 @@ public Task VerifyImage()
 <!-- endSnippet -->
 
 
+## SSIM Image Comparison
+
+By default, image comparison is byte-exact. To tolerate minor rendering differences (anti-aliasing, font hinting, subpixel rendering), enable SSIM (Structural Similarity Index) comparison by passing a threshold to `Initialize`:
+
+```cs
+[ModuleInitializer]
+public static void Init() =>
+    VerifyImageSharp.Initialize(ssimThreshold: 0.999);
+```
+
+SSIM returns a value between 0.0 (completely different) and 1.0 (identical). Images with an SSIM at or above the threshold are considered equal. Recommended thresholds:
+
+ * `0.999` — tolerates anti-aliasing and subpixel rendering differences
+ * `0.995` — tolerates minor font/layout shifts across OS versions
+ * `0.99` — tolerates moderate rendering variation
+
+### Per-test threshold
+
+Override the global threshold for a specific test:
+
+<!-- snippet: SsimThreshold -->
+<a id='snippet-SsimThreshold'></a>
+```cs
+[Test]
+public Task VerifyImageWithSsimThreshold()
+{
+    var image = new Image<Rgba32>(11, 11)
+    {
+        [5, 5] = Rgba32.ParseHex("#0000FF")
+    };
+    return Verify(image)
+        .SsimThreshold(0.95);
+}
+```
+<sup><a href='/src/Tests/SsimTests.cs#L61-L74' title='Snippet source file'>snippet source</a> | <a href='#snippet-SsimThreshold' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+### Direct SSIM calculation
+
+The `SsimComparer` class can also be used directly to get the raw SSIM value:
+
+```cs
+double ssim = SsimComparer.Calculate(receivedStream, verifiedStream);
+```
+
+
 ## File Samples
 
 http://file-examples.com/
