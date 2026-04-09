@@ -23,6 +23,11 @@ public static class SsimComparer
             return 0;
         }
 
+        return CalculateCore(img1, img2);
+    }
+
+    static double CalculateCore(Image<Rgba32> img1, Image<Rgba32> img2)
+    {
         var width = img1.Width;
         var height = img1.Height;
         var pixelCount = (double) (width * height);
