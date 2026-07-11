@@ -101,7 +101,7 @@ public Task VerifyImage()
 {
     var image = new Image<Rgba32>(11, 11)
     {
-        [5, 5] = Rgba32.ParseHex("#0000FF")
+        [5, 5] = Color.ParseHex("#0000FF").ToPixel<Rgba32>()
     };
     return Verify(image);
 }
@@ -138,7 +138,7 @@ public Task VerifyImageWithSsimThreshold()
 {
     var image = new Image<Rgba32>(11, 11)
     {
-        [5, 5] = Rgba32.ParseHex("#0000FF")
+        [5, 5] = Color.ParseHex("#0000FF").ToPixel<Rgba32>()
     };
     return Verify(image)
         .SsimThreshold(0.95);

@@ -24,7 +24,7 @@ public class SsimTests
         {
             for (var x = 0; x < 100; x++)
             {
-                white[x, y] = new Rgba32(255, 255, 255, 255);
+                white[x, y] = new(255, 255, 255, 255);
             }
         }
 
@@ -41,7 +41,7 @@ public class SsimTests
         // change a few pixels slightly
         for (var x = 0; x < 10; x++)
         {
-            image2[x, 0] = new Rgba32(10, 10, 10, 255);
+            image2[x, 0] = new(10, 10, 10, 255);
         }
 
         var ssim = SsimComparer.Calculate(Encode(image1), Encode(image2));
@@ -65,7 +65,7 @@ public class SsimTests
     {
         var image = new Image<Rgba32>(11, 11)
         {
-            [5, 5] = Rgba32.ParseHex("#0000FF")
+            [5, 5] = Color.ParseHex("#0000FF").ToPixel<Rgba32>()
         };
         return Verify(image)
             .SsimThreshold(0.95);

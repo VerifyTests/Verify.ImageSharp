@@ -28,7 +28,7 @@ public class Samples
     {
         var image = new Image<Rgba32>(11, 11)
         {
-            [5, 5] = Rgba32.ParseHex("#0000FF")
+            [5, 5] = Color.ParseHex("#0000FF").ToPixel<Rgba32>()
         };
         return Verify(image);
     }
@@ -42,7 +42,7 @@ public class Samples
     {
         var image = new Image<Rgba32>(11, 11)
         {
-            [5, 5] = Rgba32.ParseHex("#0000FF")
+            [5, 5] = Color.ParseHex("#0000FF").ToPixel<Rgba32>()
         };
         return Verify(image)
             .EncodeAsJpeg();
@@ -55,7 +55,7 @@ public class Samples
     {
         var image = new Image<Rgba32>(11, 11)
         {
-            [5, 5] = Rgba32.ParseHex("#FF0000")
+            [5, 5] = Color.ParseHex("#FF0000").ToPixel<Rgba32>()
         };
         var stream = new MemoryStream();
         image.SaveAsPng(stream);
