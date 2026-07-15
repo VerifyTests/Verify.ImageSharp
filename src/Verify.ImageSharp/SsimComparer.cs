@@ -1,7 +1,3 @@
-using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics;
-using SixLabors.ImageSharp.PixelFormats;
-
 namespace VerifyTests;
 
 public static class SsimComparer

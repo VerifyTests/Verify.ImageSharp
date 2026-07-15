@@ -2,6 +2,7 @@
   <Folder Name="/Solution Items/">
     <File Path="../.gitignore" />
     <File Path="../docs/intro.include.md" />
+    <File Path="../global.json" />
     <File Path="../readme.md" />
     <File Path="../.editorconfig" />
     <File Path=".gitattributes" />

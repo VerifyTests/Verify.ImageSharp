@@ -1,3 +1,5 @@
+global using System.Runtime.InteropServices;
+global using System.Runtime.Intrinsics;
 global using SixLabors.ImageSharp;
 global using SixLabors.ImageSharp.Formats;
 global using SixLabors.ImageSharp.Formats.Bmp;
@@ -5,3 +7,4 @@ global using SixLabors.ImageSharp.Formats.Gif;
 global using SixLabors.ImageSharp.Formats.Jpeg;
 global using SixLabors.ImageSharp.Formats.Png;
 global using SixLabors.ImageSharp.Formats.Tiff;
+global using SixLabors.ImageSharp.PixelFormats;
