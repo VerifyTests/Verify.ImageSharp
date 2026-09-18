@@ -116,7 +116,7 @@ public static class VerifyImageSharp
         Convert<JpegEncoder>(name, JpegDecoder.Instance, stream, "jpg", context);
 
     static ConversionResult ConvertPng(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
-        Convert<PngEncoder>(name, PngDecoder.Instance, stream, "png", context);
+        Convert<PngEncoder>(name, SixLabors.ImageSharp.Formats.Png.PngDecoder.Instance, stream, "png", context);
 
     static ConversionResult ConvertTiff(string? name, Stream stream, IReadOnlyDictionary<string, object> context) =>
         Convert<TiffEncoder>(name, TiffDecoder.Instance, stream, "tif", context);
