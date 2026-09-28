@@ -1,18 +1,17 @@
-[TestFixture]
 public class SsimTests
 {
     [Test]
-    public void IdenticalImages()
+    public async Task IdenticalImages()
     {
         using var image = new Image<Rgba32>(100, 100);
         var stream1 = Encode(image);
         var stream2 = Encode(image);
         var ssim = SsimComparer.Calculate(stream1, stream2);
-        Assert.That(ssim, Is.EqualTo(1.0));
+        await Assert.That(ssim).IsEqualTo(1.0);
     }
 
     [Test]
-    public void CompletelyDifferentImages()
+    public async Task CompletelyDifferentImages()
     {
         using var black = new Image<Rgba32>(100, 100);
         using var white = new Image<Rgba32>(100, 100);
@@ -25,11 +24,11 @@ public class SsimTests
         }
 
         var ssim = SsimComparer.Calculate(Encode(black), Encode(white));
-        Assert.That(ssim, Is.LessThan(0.1));
+        await Assert.That(ssim).IsLessThan(0.1);
     }
 
     [Test]
-    public void SlightlyDifferentImages()
+    public async Task SlightlyDifferentImages()
     {
         using var image1 = new Image<Rgba32>(100, 100);
         using var image2 = image1.Clone();
@@ -41,17 +40,17 @@ public class SsimTests
         }
 
         var ssim = SsimComparer.Calculate(Encode(image1), Encode(image2));
-        Assert.That(ssim, Is.GreaterThan(0.99));
-        Assert.That(ssim, Is.LessThan(1.0));
+        await Assert.That(ssim).IsGreaterThan(0.99);
+        await Assert.That(ssim).IsLessThan(1.0);
     }
 
     [Test]
-    public void DifferentSizeReturnsZero()
+    public async Task DifferentSizeReturnsZero()
     {
         using var small = new Image<Rgba32>(50, 50);
         using var large = new Image<Rgba32>(100, 100);
         var ssim = SsimComparer.Calculate(Encode(small), Encode(large));
-        Assert.That(ssim, Is.EqualTo(0));
+        await Assert.That(ssim).IsEqualTo(0d);
     }
 
     #region SsimThreshold

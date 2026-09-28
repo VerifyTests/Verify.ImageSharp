@@ -50,7 +50,7 @@ public static void Init() =>
 public Task VerifyImageFile() =>
     VerifyFile("sample.jpg");
 ```
-<sup><a href='/src/Tests/Samples.cs#L4-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImageFile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L3-L9' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImageFile' title='Start of snippet'>anchor</a></sup>
 <a id='snippet-VerifyImageFile-1'></a>
 ```cs
 [Test]
@@ -58,7 +58,7 @@ public Task VerifyImageFileWithCustomEncoder() =>
     VerifyFile("sample.jpg")
         .EncodeAsPng();
 ```
-<sup><a href='/src/Tests/Samples.cs#L12-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImageFile-1' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L11-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImageFile-1' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Two files are produced
@@ -106,7 +106,7 @@ public Task VerifyImage()
     return Verify(image);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L21-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L20-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-VerifyImage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -144,7 +144,7 @@ public Task VerifyImageWithSsimThreshold()
         .SsimThreshold(0.95);
 }
 ```
-<sup><a href='/src/Tests/SsimTests.cs#L57-L70' title='Snippet source file'>snippet source</a> | <a href='#snippet-SsimThreshold' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/SsimTests.cs#L56-L69' title='Snippet source file'>snippet source</a> | <a href='#snippet-SsimThreshold' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ### Direct SSIM calculation

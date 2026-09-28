@@ -1,5 +1,4 @@
-﻿[TestFixture]
-public class Samples
+﻿public class Samples
 {
     #region VerifyImageFile
 
