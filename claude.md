@@ -19,7 +19,7 @@ dotnet test src --configuration Release
 dotnet test src/Tests --filter "FullyQualifiedName~Samples.VerifyImageFile"
 ```
 
-The solution file is `src/Verify.ImageSharp.slnx`. Both projects target .NET 8.0 and require .NET SDK 10.0.200 (preview, see `src/global.json`).
+The solution file is `src/Verify.ImageSharp.slnx`.
 
 ## Architecture
 
